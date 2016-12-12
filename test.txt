@@ -1,0 +1,13 @@
+Simple echo test.
+    $ echo test
+    test
+
+Load antigen.
+    $ source $HOME/.antigen/antigen.zsh
+    [0]
+
+Antigen version.
+    $ source $HOME/.antigen/antigen.zsh
+    $ antigen version
+    v1.3.0
+
