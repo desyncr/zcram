@@ -4,10 +4,62 @@ Simple echo test.
 
 Load antigen.
     $ source $HOME/.antigen/antigen.zsh
-    [0]
+    
 
 Antigen version.
     $ source $HOME/.antigen/antigen.zsh
     $ antigen version
-    v1.3.0
+    Antigen v1.3.0
+
+#Function definition.
+#    $ aFunction(){echo "aFunctionOutput";}
+#    $ aFunction
+#    aFunctionOutput
+
+Call defined function.
+    $ aFunction &> /dev/null
+    [127]
+
+Using environment variables.
+    $ PS1="prompt > "
+    $ echo $PS1
+    prompt > (re)
+
+Creating directories.
+    $ mkdir testststst # should be deleted/created in a temp directory
+    $ file testst*
+    directory (re)
+
+Using pipes.
+    $ echo "isThisATest" | grep -o Test
+    Test
+
+Code continuation:
+    $ for file in $(ls .); do
+    > echo $file;
+    > done
+    zcram.zsh (re)
+
+Multiline function definition.
+    $ aFunction () {
+    >   echo asdasd
+    > }
+    $ aFunction
+    asdasd
+
+Aliasing should work.
+    $ aFunction () {
+    >   echo result
+    > }
+    $ alias a=echo
+    $ echo result
+    result
+
+    $ aFunction
+    result
+
+# Can't alias a function
+    $ alias a=aFunction
+    $ a &> /dev/null
+    [127]
 
